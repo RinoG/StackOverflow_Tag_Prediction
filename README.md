@@ -7,7 +7,9 @@ The following dataset was used to fine tune BERT: [60k Stack Overflow Questions 
 I had problems with multi-tag predictions, so I only took the first tag. The input was the title of the question.
 
 # 1. Model Training
-Models are stored [here](https://drive.google.com/drive/folders/1qSG9-jJ511Qy525_Gbm-LH5WdiLYGJwr)
+This is the [Jupyter Notebook](https://github.com/RinoG/StackOverflow_Tag_Prediction/blob/main/model_training.ipynb)
+
+And the models are stored [here](https://drive.google.com/drive/folders/1qSG9-jJ511Qy525_Gbm-LH5WdiLYGJwr)
 
 I got the following metrics:
 
