@@ -26,7 +26,6 @@ In terms of prediction speed the quantizised showed best performance:
     Quantized Model Average Time: 0.0183 seconds
     Pruned and Quantization Model Average Time: 0.0178 seconds
 
-For the further project the `BERT Quantization` was taken.
 `BERT Quantization`  was used for the rest of the project.
 
 # 2. Service deployment
