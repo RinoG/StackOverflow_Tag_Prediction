@@ -21,7 +21,7 @@ I got the following metrics:
 | BERT Quantization          | 0.533    | 0.525     | 0.570  |
 | BERT Prune and Quantization| 0.416    | 0.491     | 0.452  |
 
-In terms of prediction speed the quantizised showed best performance:
+In terms of prediction speed the quantization showed best performance:
 
     Standard Model Average Time: 0.0341 seconds
     Pruned Model Average Time: 0.0341 seconds
@@ -31,3 +31,48 @@ In terms of prediction speed the quantizised showed best performance:
 `BERT Quantization`  was used for the rest of the project.
 
 # 2. Service deployment
+Unfortunately, time is running out, so I did the service part quick and dirty. 
+
+- download the [fine-tuned-model](https://drive.google.com/drive/folders/1qSG9-jJ511Qy525_Gbm-LH5WdiLYGJwr) and add the folder to the directory
+- install the packages from `requirements.txt`
+- run `server.py` in terminal like this: `python3 server.py`
+
+Now you can send requests in python like this:
+
+```python
+import requests
+
+url = "http://localhost:5000/predict"
+
+data = {
+    "title": "This is an example Title"
+}
+response = requests.post(url, json=data)
+
+print("Response from API:", response.json())
+```
+output: `Response from API: {'predicted_tag': 'php'}`
+
+## Performance Testing
+Running `Apache JMeter` with following settings:
+- Number of Threads (users): 10
+- Ramp-up period (seconds): 5
+- Loop Count: 100
+- body: {"title": "This is an example title"}
+
+I got this metrics:
+
+| Metric            | Value     |
+|-------------------|-----------|
+| Label             | HTTP Request |
+| # Samples         | 1501      |
+| Average (ms)      | 128       |
+| Min (ms)          | 0         |
+| Max (ms)          | 257       |
+| Std. Dev.         | 66.95     |
+| Error %           | 0.000%    |
+| Throughput        | 5.58946 requests/sec |
+| Received KB/sec   | 1.1       |
+| Sent KB/sec       | 1.2       |
+| Avg. Bytes        | 202       |
+
