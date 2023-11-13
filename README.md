@@ -34,7 +34,7 @@ In terms of prediction speed the quantization showed best performance:
 Unfortunately, time is running out, so I did the service part quick and dirty. 
 
 - download the [fine-tuned-model](https://drive.google.com/drive/folders/1qSG9-jJ511Qy525_Gbm-LH5WdiLYGJwr) and add the folder to the directory
-- install the packages from `requirements.txt`
+- make sure packages from `requirements.txt` are installed
 - run `server.py` in terminal like this: `python3 server.py`
 
 Now you can send requests in python like this:
